@@ -1,1 +1,1 @@
-# duad-execises
+# duad-exercises
