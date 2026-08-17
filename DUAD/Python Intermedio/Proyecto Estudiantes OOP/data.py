@@ -32,18 +32,14 @@ def import_csv(students):
                     print("Skipping a row with missing columns.")
                     continue
                 try:
-                    student = Student(
-                        row[0],
-                        row[1],
-                        int(row[2]),
-                        int(row[3]),
-                        int(row[4]),
-                        int(row[5])
-                    )
+                    grades = [int(row[2]), int(row[3]), int(row[4]), int(row[5])]
                 except ValueError:
                     print(f"Skipping {row[0]}: grades are not valid numbers.")
                     continue
-                imported.append(student)
+                if min(grades) < 0 or max(grades) > 100:
+                    print(f"Skipping {row[0]}: grades must be between 0 and 100.")
+                    continue
+                imported.append(Student(row[0], row[1], grades[0], grades[1], grades[2], grades[3]))
     except FileNotFoundError:
         print("No CSV file found. Export data first.")
         return students
