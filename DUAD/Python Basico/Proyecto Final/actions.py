@@ -9,6 +9,17 @@ def get_valid_grade(subject):
         except ValueError:
             print("That's not a valid number. Try again.")
 
+def get_valid_count():
+    while True:
+        try:
+            count = int(input("How many students? "))
+            if count >= 0:
+                return count
+            else:
+                print("The number of students can't be negative. Try again.")
+        except ValueError:
+            print("That's not a valid number. Try again.")
+
 def get_student():
     name = input("Full name: ")
     section = input("Section (e.g. 11B): ")
@@ -26,7 +37,7 @@ def get_student():
     }
 
 def add_students(students):
-    n = int(input("How many students? "))
+    n = get_valid_count()
     for i in range(n):
         print(f"--- Student {i + 1} ---")
         student = get_student()
