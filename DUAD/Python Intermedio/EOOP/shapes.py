@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Shape(ABC):
     @abstractmethod
     def calculate_perimeter(self):
@@ -20,11 +21,6 @@ class Square(Shape):
     def calculate_area(self):
         return self.side * self.side
 
-
-# Test
-sq = Square(5)
-print(f"Square perimeter: {sq.calculate_perimeter()}")
-print(f"Square area: {sq.calculate_area()}")
 
 class Circle(Shape):
     def __init__(self, radius):
@@ -48,7 +44,8 @@ class Rectangle(Shape):
     def calculate_area(self):
         return self.width * self.height
 
-    # Test all shapes
+
+# --- Tests ---
 sq = Square(5)
 ci = Circle(5)
 re = Rectangle(4, 6)
