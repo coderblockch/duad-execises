@@ -1,3 +1,6 @@
+from datetime import date
+
+
 def debug(function):
     def wrapper(*args, **kwargs):
         print(f"Parameters: args={args}, kwargs={kwargs}")
@@ -11,9 +14,6 @@ def debug(function):
 def add(a, b):
     return a + b
 
-
-# Test
-add(3, 5)
 
 def only_numbers(function):
     def wrapper(*args, **kwargs):
@@ -30,16 +30,6 @@ def multiply(a, b):
     return a * b
 
 
-# Test
-print(multiply(4, 5))        # ambos números → funciona
-
-try:
-    print(multiply(4, "hello"))  # "hello" no es número → error
-except TypeError as e:
-    print(f"Error caught: {e}")
-
-from datetime import date
-
 class User:
     def __init__(self, date_of_birth):
         self.date_of_birth = date_of_birth
@@ -52,10 +42,6 @@ class User:
             age = age - 1
         return age
 
-
-# Test
-user = User(date(1980, 11, 27))
-print(f"Age: {user.age}")   
 
 def adults_only(function):
     def wrapper(user, *args, **kwargs):
@@ -71,13 +57,25 @@ def enter_bar(user):
     print(f"Welcome! Age {user.age} - Access granted")
 
 
-# Test
-adult = User(date(1980, 11, 27))    # 45 años → adulto
-minor = User(date(2015, 5, 10))     # ~11 años → menor
+# --- Tests ---
+add(3, 5)
 
-enter_bar(adult)    # debe permitir
+print(multiply(4, 5))
 
 try:
-    enter_bar(minor)    # debe lanzar error
+    print(multiply(4, "hello"))
+except TypeError as e:
+    print(f"Error caught: {e}")
+
+user = User(date(1980, 11, 27))
+print(f"Age: {user.age}")
+
+adult = User(date(1980, 11, 27))
+minor = User(date(2015, 5, 10))
+
+enter_bar(adult)
+
+try:
+    enter_bar(minor)
 except ValueError as e:
     print(f"Error caught: {e}")
