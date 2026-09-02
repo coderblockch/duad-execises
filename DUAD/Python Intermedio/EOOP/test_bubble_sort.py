@@ -9,35 +9,18 @@ class TestBubbleSort(unittest.TestCase):
         self.assertEqual(result, [1, 2, 5, 8])
 
     def test_large_list(self):
-        # Creamos una lista de 100 a 1 (desordenada, al revés)
-        big_list = list(range(100, 0, -1))    # [100, 99, ..., 1]
+        big_list = list(range(100, 0, -1))
         result = bubble_sort(big_list)
-        # Lo esperado: ordenada de 1 a 100
-        expected = list(range(1, 101))         # [1, 2, ..., 100]
-        self.assertEqual(result, expected) 
+        expected = list(range(1, 101))
+        self.assertEqual(result, expected)
 
     def test_empty_list(self):
         result = bubble_sort([])
-        self.assertEqual(result, [])      
-
-
-    def bubble_sort(arr):
-        if not isinstance(arr, list):
-         raise TypeError("The parameter must be a list")
-        n = len(arr)
-        for i in range(n):
-         for j in range(n - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-        return arr  
-
+        self.assertEqual(result, [])
 
     def test_not_a_list(self):
         with self.assertRaises(TypeError):
-            bubble_sort(123)    # 123 no es lista → debe lanzar TypeError   
-
-
-
+            bubble_sort(123)
 
 
 if __name__ == '__main__':
