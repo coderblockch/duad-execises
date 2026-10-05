@@ -1,0 +1,21 @@
+{
+    "movements": [
+        {
+            "title": "Salario",
+            "amount": 1000,
+            "category": "Trabajo",
+            "movement_type": "Ingreso"
+        },
+        {
+            "title": "Fence",
+            "amount": 1500.0,
+            "category": "Trabajo",
+            "movement_type": "Ingreso"
+        }
+    ],
+    "categories": [
+        {
+            "name": "Trabajo"
+        }
+    ]
+}
