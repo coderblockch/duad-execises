@@ -1,4 +1,5 @@
 import json
+from logic import Movement, Category, FinanceManager
 
 
 def save_data(manager, filename="finance_data.json"):
